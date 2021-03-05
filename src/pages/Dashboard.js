@@ -1,5 +1,10 @@
 import React from 'react';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import '../../node_modules/react-circular-progressbar/dist/styles.css';
+
 const Dashboard = () => {
+  // const percentage = 4.52;
+  const value = 70;
   return (
     <>
       <nav className="my-4">
@@ -14,8 +19,24 @@ const Dashboard = () => {
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6">
-              <div className="data-wrapper p-5 d-flex align-items-center">
-                <div className="data  text-center d-flex align-items-center justify-content-center flex-column ">
+              <div className="data-wrapper p-5 d-flex align-items-center postion-relative">
+                <CircularProgressbar
+                  value={value}
+                  text={``}
+                  className=" custom-width"
+                  styles={buildStyles({
+                    // Text size
+                    // textSize: '16px',
+
+                    // Colors
+                    pathColor: `#7265C9`,
+                    // textColor: '#fff',
+                    trailColor: '#332F53',
+                    backgroundColor: 'transparent',
+                  })}
+                />
+
+                <div className="position-absolute data-circle-content w-25 ">
                   <h1 className="tertiary-color font-weight-bolder fs-36">
                     4.52
                   </h1>
